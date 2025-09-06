@@ -1,0 +1,12 @@
+[package]
+edition = "2024"
+name = "rust_rsa_learn"
+version = "0.1.0"
+
+[dependencies]
+rand = "0.8"
+base64 = "0.21"
+anyhow = "1.0.99"
+md-5 = { version = "0.10", features = ["oid"] }
+rsa = { version = "0.9" }
+digest = "0.10.7"
