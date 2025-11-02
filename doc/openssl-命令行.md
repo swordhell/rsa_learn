@@ -5,6 +5,7 @@
 ```bash
 openssl genrsa -out rsa_private_key.pem 2048
 openssl rsa -in rsa_private_key.pem -out rsa_public_key.pem -pubout
+# 将打平的私钥输出
 echo "<your-flatten-rsa-private-key>" | base64 -d | openssl pkey -inform DER -text
 # 如果是 PKCS#8 PEM，生成der文件；
 openssl pkcs8 -topk8 -inform PEM -outform DER -in rsa_private_key.pem -out rsa_private_key.der -nocrypt
@@ -13,6 +14,8 @@ openssl rsa -inform PEM -outform DER -in rsa_private_key.pem -out rsa_private_ke
 # 查看key
 openssl pkey -in rsa_private_key.pem -text -noout
 openssl pkey -pubin -in rsa_public_key.pem -text -noout
+# 打平私钥/公钥
+grep -v "-----" key.pem | tr -d '\n'
 ```
 
 ```pem
