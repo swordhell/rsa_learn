@@ -15,7 +15,7 @@ openssl rsa -inform PEM -outform DER -in rsa_private_key.pem -out rsa_private_ke
 openssl pkey -in rsa_private_key.pem -text -noout
 openssl pkey -pubin -in rsa_public_key.pem -text -noout
 # 打平私钥/公钥
-grep -v "-----" key.pem | tr -d '\n'
+grep -v -- "-----" key.pem | tr -d '\n'
 ```
 
 ```pem
